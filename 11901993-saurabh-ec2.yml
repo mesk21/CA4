@@ -14,6 +14,7 @@
     count: 1
     region: us-east-1
     security_group: 11901993-security-group
+    ansible_python_interpreter: /usr/bin/python3
 
   tasks:
     - name: Create a security group
