@@ -47,13 +47,13 @@
 
     - name: Launch the new EC2 Instance
       local_action: ec2
-        group={{ security_group }}
-        instance_type={{ instance_type}}
-        image={{ image }}
+        group="{{ security_group }}"
+        instance_type="{{ instance_type}}"
+        image="{{ image }}"
         wait=true
-        region={{ region }}
-        keypair={{ keypair }}
-        count={{count}}
+        region="{{ region }}"
+        keypair="{{ keypair }}"
+        count="{{count}}"
       register: ec2
     - name: Task
       local_action: ec2_tag resource={{ item.id }} region={{ region }} state=present
