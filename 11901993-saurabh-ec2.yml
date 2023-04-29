@@ -1,0 +1,27 @@
+- name: Create EC2 instance
+  hosts: localhost
+  connection: local
+  gather_facts: no
+  vars:
+    instance_type: t2.micro
+    ami: ami-02396cdd13e9a1257
+    region: us-east-1
+    key_name: 11901993
+    security_group: 11901993-ca4
+    tag_name: 11901993-saurabh
+  tasks:
+    - name: Launch EC2 Instance
+      amazon.aws.ec2_instance:
+        key_name: "{{ key_name }}"
+        instance_type: "{{ instance_type }}"
+        image:
+          id: "{{ ami }}"
+        region: "{{ region }}"
+        tags:
+          Name: "{{ tag_name }}"
+        wait: true
+      register: ec2
+
+    - name: Print Public IP Address
+      debug:
+        msg: "Instance IP address is {{ ec2.instances[0].public_ip_address }}"
