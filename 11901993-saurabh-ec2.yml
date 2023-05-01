@@ -6,8 +6,8 @@
     instance_type: t2.micro
     ami: ami-0851ae80eb9281fbb
     region: us-east-1
-    key_name: 11901993
-    security_group: 11901993-ca4
+    key_name: tomcatserver
+    security_group: tomcatserversg
     tag_name: 11901993-saurabh
   tasks:
     - name: Launch EC2 Instance
