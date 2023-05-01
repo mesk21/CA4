@@ -4,7 +4,7 @@
   gather_facts: no
   vars:
     instance_type: t2.micro
-    ami: ami-02396cdd13e9a1257
+    ami: ami-0851ae80eb9281fbb
     region: us-east-1
     key_name: 11901993
     security_group: 11901993-ca4
