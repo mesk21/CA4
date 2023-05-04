@@ -9,9 +9,24 @@
     key_name: tomcatserver
     security_group: launch-wizard-3
     tag_name: 11901993-saurabh
+    tag_name1: machine
     vpc_subnet_id: subnet-0c0a281e2775dbf5f
   tasks:
     - name: Launch EC2 Instance
+      amazon.aws.ec2_instance:
+        key_name: "{{ key_name }}"
+        instance_type: "{{ instance_type }}"
+        image:
+          id: "{{ ami }}"
+        region: "{{ region }}"
+        vpc_subnet_id: "{{ vpc_subnet_id }}"
+        security_group: "{{ security_group }}"
+        tags:
+          Name: "{{ tag_name }}"
+        wait: true
+      register: ec2
+      
+   - name: Launch EC2 Instance
       amazon.aws.ec2_instance:
         key_name: "{{ key_name }}"
         instance_type: "{{ instance_type }}"
